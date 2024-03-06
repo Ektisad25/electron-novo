@@ -1,6 +1,6 @@
 ### https://raw.githubusercontent.com/Electron-Cash/Electron-Cash/master/contrib/build-wine/docker/Dockerfile
 
-FROM ubuntu:22.04@sha256:42ba2dfce475de1113d55602d40af18415897167d47c2045ec7b6d9746ff148f
+FROM ubuntu:22.04@sha256:77906da86b60585ce12215807090eb327e7386c8fafb5402369e421f44eff17e
 
 ARG UBUNTU_MIRROR=http://archive.ubuntu.com/ubuntu/
 
