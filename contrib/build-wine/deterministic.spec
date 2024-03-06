@@ -10,7 +10,7 @@ for i, x in enumerate(sys.argv):
 else:
     raise BaseException('no name')
 
-home = 'C:\\electronradiant\\'
+home = 'C:\\electronnovo\\'
 
 # see https://github.com/pyinstaller/pyinstaller/issues/2005
 hiddenimports = []
@@ -65,7 +65,7 @@ datas += collect_data_files('keepkeylib')
 datas += collect_data_files('mnemonic')  # wordlists used by keepkeylib from lib mnemonic
 
 # We don't put these files in to actually include them in the script but to make the Analysis method scan them for imports
-a = Analysis([home+'electron-radiant',
+a = Analysis([home+'electron-novo',
               home+'electroncash_gui/qt/main_window.py',
               home+'electroncash_gui/qt/qrreader/camera_dialog.py',
               home+'electroncash_gui/text.py',
@@ -136,7 +136,7 @@ exe_standalone = EXE(
     a.scripts,
     a.binaries,
     a.datas,
-    name=os.path.join('build\\pyi.win32\\electronradiant', cmdline_name + ".exe"),
+    name=os.path.join('build\\pyi.win32\\electronnovo', cmdline_name + ".exe"),
     debug=False,
     strip=None,
     upx=False,
@@ -149,7 +149,7 @@ exe_portable = EXE(
     a.scripts,
     a.binaries,
     a.datas + [ ('is_portable', 'README.md', 'DATA' ) ],
-    name=os.path.join('build\\pyi.win32\\electronradiant', cmdline_name + "-portable.exe"),
+    name=os.path.join('build\\pyi.win32\\electronnovo', cmdline_name + "-portable.exe"),
     debug=False,
     strip=None,
     upx=False,
@@ -164,7 +164,7 @@ exe_dependent = EXE(
     pyz,
     a.scripts,
     exclude_binaries=True,
-    name=os.path.join('build\\pyi.win32\\electronradiant', cmdline_name),
+    name=os.path.join('build\\pyi.win32\\electronnovo', cmdline_name),
     debug=False,
     strip=None,
     upx=False,
@@ -182,4 +182,4 @@ coll = COLLECT(
     debug=False,
     icon=home+'icons/electron.ico',
     console=False,
-    name=os.path.join('dist', 'electronradiant'))
+    name=os.path.join('dist', 'electronnovo'))

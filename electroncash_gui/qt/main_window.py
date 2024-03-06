@@ -533,8 +533,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if self.wallet.is_watching_only():
             msg = ' '.join([
                 _("This wallet is watching-only."),
-                _("This means you will not be able to spend Radiant with it."),
-                _("Make sure you own the seed phrase or the private keys, before you request Radiant to be sent to this wallet.")
+                _("This means you will not be able to spend novo with it."),
+                _("Make sure you own the seed phrase or the private keys, before you request novo to be sent to this wallet.")
             ])
             self.show_warning(msg, title=_('Information'))
 
@@ -563,7 +563,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         if is_old_bad:
             msg = ' '.join([
                 _("This testnet wallet has an invalid master key format."),
-                _("(Old versions of Electron Radiant before 3.3.6 produced invalid testnet wallets)."),
+                _("(Old versions of Electron novo before 3.3.6 produced invalid testnet wallets)."),
                 '<br><br>',
                 _("In order to use this wallet without errors with this version of EC, please <b>re-generate this wallet from seed</b>."),
                 "<br><br><em><i>~SPV stopped~</i></em>"
@@ -612,7 +612,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
                 self.show_message(_("A copy of your wallet file was created in")+" '%s'" % str(new_path), title=_("Wallet backup created"))
             except (IOError, os.error) as reason:
-                self.show_critical(_("Electron Radiant was unable to copy your wallet file to the specified location.") + "\n" + str(reason), title=_("Unable to create backup"))
+                self.show_critical(_("Electron novo was unable to copy your wallet file to the specified location.") + "\n" + str(reason), title=_("Unable to create backup"))
 
     def update_recently_visited(self, filename):
         recent = self.config.get('recently_open', [])
@@ -751,7 +751,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         help_menu.addAction(_("&About"), self.show_about)
         help_menu.addAction(_("About Qt"), self.app.aboutQt)
         help_menu.addAction(_("&Check for Updates"), lambda: self.gui_object.show_update_checker(self))
-        help_menu.addAction(_("&Official Website"), lambda: webopen("https://github.com/RadiantBlockchain/electron-radiant"))
+        help_menu.addAction(_("&Official Website"), lambda: webopen("https://github.com/novoBlockchain/electron-novo"))
         help_menu.addSeparator()
         help_menu.addAction(_("Documentation"), lambda: webopen("http://electroncash.readthedocs.io/")).setShortcut(QKeySequence.HelpContents)
         help_menu.addAction(_("&Report Bug..."), self.show_report_bug)
@@ -796,27 +796,27 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.show_error(_('No donation address for this server'))
 
     def show_about(self):
-        QMessageBox.about(self, "Electron Radiant",
-            "<p><font size=+3><b>Electron Radiant</b></font></p><p>" + _("Version") + f" {self.wallet.electrum_version}" + "</p>" +
+        QMessageBox.about(self, "Electron novo",
+            "<p><font size=+3><b>Electron novo</b></font></p><p>" + _("Version") + f" {self.wallet.electrum_version}" + "</p>" +
             '<span style="font-size:10pt; font-weight:500;"><p>' +
-            _("Copyright © {year_start}-{year_end} Electron Radiant and the Electron Radiant developers.").format(year_start=2022, year_end=2023) +
+            _("Copyright © {year_start}-{year_end} Electron novo and the Electron novo developers.").format(year_start=2022, year_end=2023) +
             '<span style="font-size:10pt; font-weight:500;"><p>' +
             _("Copyright © {year_start}-{year_end} Electron Cash LLC and the Electron Cash developers.").format(year_start=2017, year_end=2022) +
             "</p><p>" + _("darkdetect for macOS © 2019 Alberto Sottile") + "</p>"
             "</span>" +
             '<span style="font-weight:200;"><p>' +
-            _("Electron Radiant focus is speed, with low resource usage and simplifying Radiant. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the Radiant system.") +
+            _("Electron novo focus is speed, with low resource usage and simplifying novo. You do not need to perform regular backups, because your wallet can be recovered from a secret phrase that you can memorize or write on paper. Startup times are instant because it operates in conjunction with high-performance servers that handle the most complicated parts of the novo system.") +
             "</p></span>"
         )
 
     def show_report_bug(self):
         msg = ' '.join([
             _("Please report any bugs as issues on github:<br/>"),
-            "<a href=\"https://github.com/RadiantBlockchain/electron-radiant/issues\">https://github.com/RadiantBlockchain/electron-radiant/issues</a><br/><br/>",
-            _("Before reporting a bug, upgrade to the most recent version of Electron Radiant (latest release or git HEAD), and include the version number in your report."),
+            "<a href=\"https://github.com/novoBlockchain/electron-novo/issues\">https://github.com/novoBlockchain/electron-novo/issues</a><br/><br/>",
+            _("Before reporting a bug, upgrade to the most recent version of Electron novo (latest release or git HEAD), and include the version number in your report."),
             _("Try to explain not only what the bug is, but how it occurs.")
          ])
-        self.show_message(msg, title="Electron Radiant - " + _("Reporting Bugs"), rich_text = True)
+        self.show_message(msg, title="Electron novo - " + _("Reporting Bugs"), rich_text = True)
 
     def notify(self, message):
         self.gui_object.notify(message)
@@ -1125,7 +1125,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.receive_address_e = ButtonsLineEdit()
         self.receive_address_e.addCopyButton()
         self.receive_address_e.setReadOnly(True)
-        msg = _('Radiant address where the payment should be received. Note that each payment request uses a different Radiant address.')
+        msg = _('novo address where the payment should be received. Note that each payment request uses a different novo address.')
         label = HelpLabel(_('&Receiving address'), msg)
         label.setBuddy(self.receive_address_e)
         self.receive_address_e.textChanged.connect(self.update_receive_qr)
@@ -1192,8 +1192,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         msg = ' '.join([
             _('Expiration date of your request.'),
             _('This information is seen by the recipient if you send them a signed payment request.'),
-            _('Expired requests have to be deleted manually from your list, in order to free the corresponding Radiant addresses.'),
-            _('The Radiant address never expires and will always be part of this Electron Radiant wallet.'),
+            _('Expired requests have to be deleted manually from your list, in order to free the corresponding novo addresses.'),
+            _('The novo address never expires and will always be part of this Electron novo wallet.'),
         ])
         label = HelpLabel(_('Request &expires'), msg)
         label.setBuddy(self.expires_combo)
@@ -1538,8 +1538,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         msg = "<span style=\"font-weight:400;\">" + _('Recipient of the funds.') + " " + \
               _("You may enter:"
                 "<ul>"
-                "<li> Radiant <b>Address</b> <b>★</b>"
-                "<li> Radiant Multisign <b>Address</b> <b>★</b>"
+                "<li> novo <b>Address</b> <b>★</b>"
+                "<li> novo Multisign <b>Address</b> <b>★</b>"
                 "</pre>")
         self.payto_label = payto_label = HelpLabel(_('Pay &to'), msg)
         payto_label.setBuddy(self.payto_e)
@@ -1563,7 +1563,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         grid.addWidget(self.message_e, 2, 1, 1, -1)
 
         msg_opreturn = ( _('OP_RETURN data (optional).') + '\n\n'
-                        + _('Posts a PERMANENT note to the Radiant blockchain as part of this transaction.')
+                        + _('Posts a PERMANENT note to the novo blockchain as part of this transaction.')
                         + '\n\n' + _('If you specify OP_RETURN text, you may leave the \'Pay to\' field blank.') )
         self.opreturn_label = HelpLabel(_('&OP_RETURN'), msg_opreturn)
         grid.addWidget(self.opreturn_label,  3, 0)
@@ -1615,7 +1615,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         hbox.addStretch(1)
         grid.addLayout(hbox, 5, 4, 1, -1)
 
-        msg = _('Radiant transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
+        msg = _('novo transactions are in general not free. A transaction fee is paid by the sender of the funds.') + '\n\n'\
               + _('The amount of fee can be decided freely by the sender. However, transactions with low fees take more time to be processed.') + '\n\n'\
               + _('A suggested fee is automatically added to this field. You may override it. The suggested fee increases with the size of the transaction.')
         self.fee_e_label = HelpLabel(_('F&ee'), msg)
@@ -2916,8 +2916,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         self.search_box.hide()
         sb.addPermanentWidget(self.search_box, 1)
 
-        self.update_available_button = StatusBarButton(QIcon(":icons/electron-radiant-update.svg"), _("Update available, click for details"), lambda: self.gui_object.show_update_checker(self, skip_check=True))
-        self.update_available_button.setStatusTip(_("An Electron Radiant update is available"))
+        self.update_available_button = StatusBarButton(QIcon(":icons/electron-novo-update.svg"), _("Update available, click for details"), lambda: self.gui_object.show_update_checker(self, skip_check=True))
+        self.update_available_button.setStatusTip(_("An Electron novo update is available"))
         sb.addPermanentWidget(self.update_available_button)
         self.update_available_button.setVisible(bool(self.gui_object.new_version_available))  # if hidden now gets unhidden by on_update_available when a new version comes in
 
@@ -3233,14 +3233,14 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         try:
             addr = Address.from_string(address)
         except:
-            self.show_message(_('Invalid Radiant address.'))
+            self.show_message(_('Invalid novo address.'))
             return
         if addr.kind != addr.ADDR_P2PKH:
             msg_sign = ( _("Signing with an address actually means signing with the corresponding "
                            "private key, and verifying with the corresponding public key. The "
                            "address you have entered does not have a unique public key, so these "
                            "operations cannot be performed.") + '\n\n' +
-                         _('The operation is undefined. Not just in Electron Radiant, but in general.') )
+                         _('The operation is undefined. Not just in Electron novo, but in general.') )
             self.show_message(_('Cannot sign messages with this type of address.') + '\n\n' + msg_sign)
             return
         if self.wallet.is_watching_only():
@@ -3259,7 +3259,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         try:
             address = Address.from_string(address.text().strip())
         except:
-            self.show_message(_('Invalid Radiant address.'))
+            self.show_message(_('Invalid novo address.'))
             return
         message = message.toPlainText().strip().encode('utf-8')
         try:
@@ -3399,7 +3399,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         except:
             if util.is_verbose:
                 traceback.print_exc(file=sys.stderr)
-            self.show_critical(_("Electron Radiant was unable to parse your transaction"))
+            self.show_critical(_("Electron novo was unable to parse your transaction"))
             return
 
     # Due to the asynchronous nature of the qr reader we need to keep the
@@ -3466,7 +3466,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             file_content = file_content.strip()
             tx_file_dict = json.loads(str(file_content))
         except (ValueError, IOError, OSError, json.decoder.JSONDecodeError) as reason:
-            self.show_critical(_("Electron Radiant was unable to open your transaction file") + "\n" + str(reason), title=_("Unable to read file or no transaction found"))
+            self.show_critical(_("Electron novo was unable to open your transaction file") + "\n" + str(reason), title=_("Unable to read file or no transaction found"))
             return
         tx = self.tx_from_text(file_content)
         return tx
@@ -3481,7 +3481,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             if tx:
                 self.show_transaction(tx)
         except SerializationError as e:
-            self.show_critical(_("Electron Radiant was unable to deserialize the transaction:") + "\n" + str(e))
+            self.show_critical(_("Electron novo was unable to deserialize the transaction:") + "\n" + str(e))
 
     def do_process_from_file(self, *, fileName = None):
         from electroncash.transaction import SerializationError
@@ -3490,7 +3490,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             if tx:
                 self.show_transaction(tx)
         except SerializationError as e:
-            self.show_critical(_("Electron Radiant was unable to deserialize the transaction:") + "\n" + str(e))
+            self.show_critical(_("Electron novo was unable to deserialize the transaction:") + "\n" + str(e))
 
     def do_process_from_txid(self, *, txid=None, parent=None, tx_desc=None):
         parent = parent or self
@@ -3528,7 +3528,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         if bip38:
             if not bitcoin.Bip38Key.canEncrypt() or not bitcoin.Bip38Key.isFast():
-                self.show_error(_("BIP38 Encryption is not available. Please install 'pycryptodomex' and restart Electron Radiant to enable BIP38."))
+                self.show_error(_("BIP38 Encryption is not available. Please install 'pycryptodomex' and restart Electron novo to enable BIP38."))
                 return
             passphrase = self.get_passphrase_dialog(
                 msg = (
@@ -3681,7 +3681,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             self.do_export_privkeys(filename, private_keys, csv_button.isChecked())
         except (IOError, os.error) as reason:
             txt = "\n".join([
-                _("Electron Radiant was unable to produce a private key-export."),
+                _("Electron novo was unable to produce a private key-export."),
                 str(reason)
             ])
             self.show_critical(txt, title=_("Unable to create csv"))
@@ -3716,7 +3716,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                 self.wallet.set_label(key, value)
             self.show_message(_("Your labels were imported from") + " '%s'" % str(labelsFile))
         except (IOError, OSError, json.decoder.JSONDecodeError) as reason:
-            self.show_critical(_("Electron Radiant was unable to import your labels.") + "\n" + str(reason))
+            self.show_critical(_("Electron novo was unable to import your labels.") + "\n" + str(reason))
         self.address_list.update()
         self.history_list.update()
         self.utxo_list.update()
@@ -3731,7 +3731,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                     json.dump(labels, f, indent=4, sort_keys=True)
                 self.show_message(_("Your labels were exported to") + " '%s'" % str(fileName))
         except (IOError, os.error) as reason:
-            self.show_critical(_("Electron Radiant was unable to export your labels.") + "\n" + str(reason))
+            self.show_critical(_("Electron novo was unable to export your labels.") + "\n" + str(reason))
 
     def export_history_dialog(self):
         d = WindowModalDialog(self.top_level_window(), _('Export History'))
@@ -3786,7 +3786,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
                                              timeout=timeout,
                                              include_addresses=include_addresses_chk.isChecked())
         except Exception as reason:
-            export_error_label = _("Electron Radiant was unable to produce a transaction export.")
+            export_error_label = _("Electron novo was unable to produce a transaction export.")
             self.show_critical(export_error_label + "\n" + str(reason), title=_("Unable to export history"))
         else:
             if success:
@@ -4210,7 +4210,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         cr_chk.setChecked(ew.is_enabled(self.config))
         cr_chk.clicked.connect(lambda b: ew.set_enabled(self.config, b))
         cr_help = HelpLabel(_("Crash reporter enabled"),
-                            _("The crash reporter is the error window which pops-up when Electron Radiant encounters an internal error.\n\n"
+                            _("The crash reporter is the error window which pops-up when Electron novo encounters an internal error.\n\n"
                               "It is recommended that you leave this option enabled, so that developers can be notified of any internal bugs. "
                               "When a crash is encountered you are asked if you would like to send a report.\n\n"
                               "Private information is never revealed in crash reports to developers."))
@@ -4226,9 +4226,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         misc_widgets.append((cr_gb, None))  # commit crash reporter gb to layout
 
 
-        units = util.base_unit_labels  # ( 'RXD', 'mRXD', 'bits' )
+        units = util.base_unit_labels  # ( 'NOVO', 'mNOVO', 'bits' )
         msg = _('Base unit of your wallet.')\
-              + '\n1 RXD = 1,000 mRXD = 1,000,000 bits.\n' \
+              + '\n1 NOVO = 1,000 mNOVO = 1,000,000 bits.\n' \
               + _(' These settings affects the fields in the Send tab')+' '
         unit_label = HelpLabel(_('Base unit') + ':', msg)
         unit_combo = QComboBox()
@@ -4394,7 +4394,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         updatecheck_cb = QCheckBox(_("Automatically check for updates"))
         updatecheck_cb.setChecked(self.gui_object.has_auto_update_check())
-        updatecheck_cb.setToolTip(_("Enable this option if you wish to be notified as soon as a new version of Electron Radiant becomes available"))
+        updatecheck_cb.setToolTip(_("Enable this option if you wish to be notified as soon as a new version of Electron novo becomes available"))
         def on_set_updatecheck(v):
             self.gui_object.set_auto_update_check(v == Qt.Checked)
         updatecheck_cb.stateChanged.connect(on_set_updatecheck)
@@ -4698,7 +4698,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
 
         run_hook('close_settings_dialog')
         if self.need_restart:
-            self.show_message(_('Please restart Electron Radiant to activate the new GUI settings'), title=_('Success'))
+            self.show_message(_('Please restart Electron novo to activate the new GUI settings'), title=_('Success'))
         elif need_wallet_reopen:
             self.show_message(_('Please close and reopen this wallet to activate the new settings'), title=_('Success'))
 

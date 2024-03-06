@@ -43,14 +43,14 @@ class ExchangeBase(PrintError):
     def get_json(self, site, get_string):
         # APIs must have https
         url = ''.join(['https://', site, get_string])
-        response = requests.request('GET', url, headers={'User-Agent' : 'Electron Radiant'}, timeout=10)
+        response = requests.request('GET', url, headers={'User-Agent' : 'Electron novo'}, timeout=10)
         if response.status_code != 200:
             raise RuntimeWarning("Response status: " + str(response.status_code))
         return response.json()
 
     def get_csv(self, site, get_string):
         url = ''.join(['https://', site, get_string])
-        response = requests.request('GET', url, headers={'User-Agent' : 'Electron-Radiant'})
+        response = requests.request('GET', url, headers={'User-Agent' : 'Electron-novo'})
         if response.status_code != 200:
             raise RuntimeWarning("Response status: " + str(response.status_code))
         reader = csv.DictReader(response.content.decode().split('\n'))
@@ -236,7 +236,7 @@ class CoinCap(ExchangeBase):
 class CoinGecko(ExchangeBase):
 
     def get_rates(self, ccy):
-        json = self.get_json('api.coingecko.com', '/api/v3/coins/radiant?localization=False&sparkline=false')
+        json = self.get_json('api.coingecko.com', '/api/v3/coins/novo?localization=False&sparkline=false')
         prices = json["market_data"]["current_price"]
         return dict([(a[0].upper(),PyDecimal(a[1])) for a in prices.items()])
 
@@ -250,7 +250,7 @@ class CoinGecko(ExchangeBase):
                 'ZAR']
 
     def request_history(self, ccy):
-        history = self.get_json('api.coingecko.com', '/api/v3/coins/radiant/market_chart?vs_currency=%s&days=max' % ccy)
+        history = self.get_json('api.coingecko.com', '/api/v3/coins/novo/market_chart?vs_currency=%s&days=max' % ccy)
 
         from datetime import datetime as dt
         return dict([(dt.utcfromtimestamp(h[0]/1000).strftime('%Y-%m-%d'), h[1])
@@ -374,7 +374,7 @@ class FxThread(ThreadJob):
 
     @staticmethod
     def is_supported():
-        """Fiat currency is only supported on RXD MainNet, for all other chains it is not supported."""
+        """Fiat currency is only supported on NOVO MainNet, for all other chains it is not supported."""
         return not networks.net.TESTNET
 
     def is_enabled(self):

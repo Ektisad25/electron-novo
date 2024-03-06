@@ -38,40 +38,40 @@ from . import cashacct
 from .i18n import _
 
 
-DEFAULT_EXPLORER = "radiantblockchain.org"
+DEFAULT_EXPLORER = "novoblockchain.org"
 
 mainnet_block_explorers = {
-    'radiantblockchain.org': ('https://explorer.radiantblockchain.org',
+    'novoblockchain.org': ('https://explorer.novoblockchain.org',
                               Address.FMT_LEGACY,
                               {'tx': 'tx', 'addr': 'address', 'block': 'block-height'}),
-    'radiantexplorer.com': ('https://radiantexplorer.com',
+    'novoexplorer.com': ('https://novoexplorer.com',
                               Address.FMT_LEGACY,
                               {'tx': 'tx', 'addr': 'address', 'block': 'block-height'}),
 }
 
-DEFAULT_EXPLORER_TESTNET = 'radiantblockchain.org'
+DEFAULT_EXPLORER_TESTNET = 'novoblockchain.org'
 
 testnet_block_explorers = {
-    'radiantblockchain.org': ('https://explorer-testnet.radiantblockchain.org',
+    'novoblockchain.org': ('https://explorer-testnet.novoblockchain.org',
                               Address.FMT_LEGACY,
                               {'tx': 'tx', 'addr': 'address', 'block': 'block-height'}),
-    'radiantexplorer.com': ('https://testnet.radiantexplorer.com',
+    'novoexplorer.com': ('https://testnet.novoexplorer.com',
                               Address.FMT_LEGACY,
                               {'tx': 'tx', 'addr': 'address', 'block': 'block-height'}),
 }
 
-DEFAULT_EXPLORER_TESTNET4 = 'radiantblockchain.org'
+DEFAULT_EXPLORER_TESTNET4 = 'novoblockchain.org'
 
 testnet4_block_explorers = {
-    'radiantblockchain.org': ('https://explorer-testnet.radiantblockchain.org',
+    'novoblockchain.org': ('https://explorer-testnet.novoblockchain.org',
                               Address.FMT_LEGACY,
                               {'tx': 'tx', 'addr': 'address', 'block': 'block-height'}),
 }
 
-DEFAULT_EXPLORER_SCALENET = 'radiantblockchain.org'
+DEFAULT_EXPLORER_SCALENET = 'novoblockchain.org'
 
 scalenet_block_explorers = {
-    'radiantblockchain.org': ('https://explorer-testnet.radiantblockchain.org',
+    'novoblockchain.org': ('https://explorer-testnet.novoblockchain.org',
                               Address.FMT_LEGACY,
                               {'tx': 'tx', 'addr': 'address', 'block': 'block-height'}),
 }

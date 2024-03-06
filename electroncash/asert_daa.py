@@ -39,7 +39,7 @@ def bits_to_target(bits: int) -> int:
     else:
         return word << (8 * (size - 3))
 
-# Updated for Radiant
+# Updated for novo
 def _get_asert_activation_mtp():
     """ Returns 1657404000 (Sat Jul 09 2022 22:00:00 GMT+0000) or whatever override may
     be set by the env variable ASERT_MTP """
@@ -61,7 +61,7 @@ class ASERTDaa:
     """ Parameters and methods for the ASERT DAA. Instances of these live in
     networks.TestNet, networks.MainNet as part of the chain params. """
 
-    # Updated for Radiant
+    # Updated for novo
     MTP_ACTIVATION_TIME = _get_asert_activation_mtp()  # Normally 1657404000 (Sat Jul 09 2022 22:00:00 GMT+0000)
 
     IDEAL_BLOCK_TIME = 5 * 60  # 5 mins

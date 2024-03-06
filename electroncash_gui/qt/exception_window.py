@@ -50,14 +50,14 @@ issue_template = """<h2>Traceback</h2>
 
 <h2>Additional information</h2>
 <ul>
-  <li>Electron Radiant version: {app_version}</li>
+  <li>Electron novo version: {app_version}</li>
   <li>Python version: {python_version}</li>
   <li>Operating system: {os}</li>
   <li>Wallet type: {wallet_type}</li>
   <li>Locale: {locale}</li>
 </ul>
 """
-# There is currently no report server for Electron Radiant
+# There is currently no report server for Electron novo
 report_server = ""
 
 
@@ -68,7 +68,7 @@ class Exception_Window(QWidget):
         super().__init__(None) # Top-level window. Note PyQt top level windows are kept alive by strong references, hence _active_window
         self.exc_args = (exctype, value, tb)
         self.config = config
-        self.setWindowTitle('Electron Radiant - ' + _('An Error Occurred'))
+        self.setWindowTitle('Electron novo - ' + _('An Error Occurred'))
         self.setMinimumSize(600, 200)
 
         main_box = QVBoxLayout()
@@ -76,11 +76,11 @@ class Exception_Window(QWidget):
 
         heading = QLabel('<h2>' + _('Sorry!') + '</h2>')
         main_box.addWidget(heading)
-        l = QLabel(_('Something went wrong running Electron Radiant.'))
+        l = QLabel(_('Something went wrong running Electron novo.'))
         l.setWordWrap(True)
         main_box.addWidget(l)
 
-        l = QLabel(_('Please report the problem on <a href="https://github.com/RadiantBlockchain/electron-radiant/issues">GitHub</a>.'))
+        l = QLabel(_('Please report the problem on <a href="https://github.com/novoBlockchain/electron-novo/issues">GitHub</a>.'))
         l.setWordWrap(True)
         l.setOpenExternalLinks(True)
         main_box.addWidget(l)

@@ -51,7 +51,7 @@ except AssertionError:
     pass
 else:
     import sys
-    sys.exit('Electron Radiant uses "assert" statements for its normal control flow.\n'
+    sys.exit('Electron novo uses "assert" statements for its normal control flow.\n'
              'Please run this application without the python "-O" (optimize) flag.')
 # /End -O check
 
@@ -420,7 +420,7 @@ def sha512_256(x):
     h.update(x)
     return bytes(h.digest())
 
-def RadiantHash(x):
+def novoHash(x):
     x = to_bytes(x, 'utf8')
     out = bytes(sha512_256(sha512_256(x)))
     return out

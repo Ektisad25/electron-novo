@@ -183,8 +183,8 @@ class Commands:
     @command('')
     def restore(self, text, passphrase=None, password=None, encrypt_file=True, wallet_path=None):
         """Restore a wallet from text. Text can be a seed phrase, a master
-        public key, a master private key, a list of Radiant addresses
-        or Radiant private keys.
+        public key, a master private key, a list of novo addresses
+        or novo private keys.
         If you want to be prompted for an argument, type '?' or ':' (concealed)
         """
         d = restore_wallet_from_text(text,

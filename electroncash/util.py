@@ -45,8 +45,8 @@ def inv_dict(d):
     return {v: k for k, v in d.items()}
 
 
-DEFAULT_BASE_UNIT = "RXD"
-base_units = {'RXD':8, 'mRXD':5, 'photons':0}
+DEFAULT_BASE_UNIT = "NOVO"
+base_units = {'NOVO':8, 'mNOVO':5, 'photons':0}
 
 inv_base_units = {}
 base_unit_labels = tuple()
@@ -380,7 +380,7 @@ def assert_datadir_available(config_path):
         return
     else:
         raise FileNotFoundError(
-            'Electron Radiant datadir does not exist. Was it deleted while running?' + '\n' +
+            'Electron novo datadir does not exist. Was it deleted while running?' + '\n' +
             'Should be at {}'.format(path))
 
 def assert_file_in_datadir_available(path, config_path):
@@ -471,14 +471,14 @@ def user_dir(prefer_local=False):
     if 'ANDROID_DATA' in os.environ:
         return android_data_dir()
     elif os.name == 'posix' and "HOME" in os.environ:
-        return os.path.join(os.environ["HOME"], ".electron-radiant" )
+        return os.path.join(os.environ["HOME"], ".electron-novo" )
     elif "APPDATA" in os.environ or "LOCALAPPDATA" in os.environ:
         app_dir = os.environ.get("APPDATA")
         localapp_dir = os.environ.get("LOCALAPPDATA")
         # Prefer APPDATA, but may get LOCALAPPDATA if present and req'd.
         if localapp_dir is not None and prefer_local or app_dir is None:
             app_dir = localapp_dir
-        return os.path.join(app_dir, "ElectronRadiant")
+        return os.path.join(app_dir, "Electronnovo")
     else:
         #raise Exception("No home directory found in environment variables.")
         return

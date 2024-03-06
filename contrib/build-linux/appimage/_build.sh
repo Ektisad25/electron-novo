@@ -6,7 +6,7 @@ PROJECT_ROOT="$(dirname "$(readlink -e "$0")")/../../.."
 CONTRIB="$PROJECT_ROOT/contrib"
 DISTDIR="$PROJECT_ROOT/dist"
 BUILDDIR="$CONTRIB/build-linux/appimage/build/appimage"
-APPDIR="$BUILDDIR/Electron-Radiant.AppDir"
+APPDIR="$BUILDDIR/Electron-novo.AppDir"
 CACHEDIR="$CONTRIB/build-linux/appimage/.cache/appimage"
 PYDIR="$APPDIR"/usr/lib/python3.8
 
@@ -21,7 +21,7 @@ PKG2APPIMAGE_COMMIT="eb8f3acdd9f11ab19b78f5cb15daa772367daf15"
 
 
 VERSION=`git_describe_filtered`
-APPIMAGE="$DISTDIR/Electron-Radiant-$VERSION-x86_64.AppImage"
+APPIMAGE="$DISTDIR/Electron-novo-$VERSION-x86_64.AppImage"
 
 rm -rf "$BUILDDIR"
 mkdir -p "$APPDIR" "$CACHEDIR" "$DISTDIR"
@@ -107,7 +107,7 @@ info "Preparing electrum-locale"
 )
 
 
-info "Installing Electron Radiant and its dependencies"
+info "Installing Electron novo and its dependencies"
 mkdir -p "$CACHEDIR/pip_cache"
 # Note: We must specify -g0 for CFLAGS to ensure no debug symbols (which can be non-deterministic due to tmp paths
 # encoded in the debug symbols).
@@ -122,8 +122,8 @@ CFLAGS="-g0" "$python" -m pip install --no-deps --no-warn-script-location --cach
 
 
 info "Copying desktop integration"
-cp -fp "$PROJECT_ROOT/electron-radiant.desktop" "$APPDIR/electron-radiant.desktop"
-cp -fp "$PROJECT_ROOT/icons/electron-radiant.png" "$APPDIR/electron-radiant.png"
+cp -fp "$PROJECT_ROOT/electron-novo.desktop" "$APPDIR/electron-novo.desktop"
+cp -fp "$PROJECT_ROOT/icons/electron-novo.png" "$APPDIR/electron-novo.png"
 
 
 # add launcher

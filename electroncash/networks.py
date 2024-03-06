@@ -40,8 +40,8 @@ class AbstractNet:
     LEGACY_POW_TARGET_TIMESPAN = 14 * 24 * 60 * 60   # 2 weeks
     LEGACY_POW_TARGET_INTERVAL = 10 * 60  # 10 minutes
     LEGACY_POW_RETARGET_BLOCKS = LEGACY_POW_TARGET_TIMESPAN // LEGACY_POW_TARGET_INTERVAL  # 2016 blocks
-    BASE_UNITS = {'RXD': 8, 'mRXD': 5, 'photons': 0}
-    DEFAULT_UNIT = "RXD"
+    BASE_UNITS = {'NOVO': 8, 'mNOVO': 5, 'photons': 0}
+    DEFAULT_UNIT = "NOVO"
 
 
 class MainNet(AbstractNet):
@@ -55,7 +55,7 @@ class MainNet(AbstractNet):
     GENESIS = "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"
     DEFAULT_PORTS = {'t': '50001', 's': '50002'}
     DEFAULT_SERVERS = _read_json_dict('servers.json')  # DO NOT MODIFY IN CLIENT CODE
-    TITLE = 'Electron Radiant'
+    TITLE = 'Electron novo'
 
     # Bitcoin Cash fork block specification
     BITCOIN_CASH_FORK_BLOCK_HEIGHT = 478559
@@ -102,9 +102,9 @@ class TestNet(AbstractNet):
     GENESIS = "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"
     DEFAULT_PORTS = {'t':'51001', 's':'51002'}
     DEFAULT_SERVERS = _read_json_dict('servers_testnet.json')  # DO NOT MODIFY IN CLIENT CODE
-    TITLE = 'Electron Radiant Testnet'
-    BASE_UNITS = {'tRXD': 8, 'mtRXD': 5, 'tbits': 2}
-    DEFAULT_UNIT = "tRXD"
+    TITLE = 'Electron novo Testnet'
+    BASE_UNITS = {'tNOVO': 8, 'mtNOVO': 5, 'tbits': 2}
+    DEFAULT_UNIT = "tNOVO"
 
     # Nov 13. 2017 HF to CW144 DAA height (height of last block mined on old DAA)
     CW144_HEIGHT = 1188697
@@ -153,8 +153,8 @@ class TestNet4(TestNet):
 class ScaleNet(TestNet):
     GENESIS = "00000000e6453dc2dfe1ffa19023f86002eb11dbb8e87d0291a4599f0430be52"
     TITLE = 'Electron Cash Scalenet'
-    BASE_UNITS = {'sRXD': 8, 'msRXD': 5, 'sbits': 2}
-    DEFAULT_UNIT = "tRXD"
+    BASE_UNITS = {'sNOVO': 8, 'msNOVO': 5, 'sbits': 2}
+    DEFAULT_UNIT = "tNOVO"
 
 
     HEADERS_URL = "http://bitcoincash.com/files/scalenet_headers"  # Unused

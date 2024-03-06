@@ -1,19 +1,19 @@
-name: electron-radiant
+name: electron-novo
 version: master
-summary: Radiant thin client
+summary: novo thin client
 description: |
-  Lightweight Radiant client
+  Lightweight novo client
 
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict
 
 apps:
-  electron-radiant:
-    command: desktop-launch electron-radiant
+  electron-novo:
+    command: desktop-launch electron-novo
     plugs: [network, network-bind, x11, unity7]
 
 parts:
-  electron-radiant:
+  electron-novo:
     source: .
     plugin: python
     python-version: python3

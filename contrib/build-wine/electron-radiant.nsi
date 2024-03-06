@@ -7,9 +7,9 @@
 ;--------------------------------
 ;Variables
 
-  !define PRODUCT_NAME "Electron Radiant"
-  !define INTERNAL_NAME "Electron-Radiant"
-  !define PRODUCT_WEB_SITE "https://github.com/RadiantBlockchain/electron-radiant"
+  !define PRODUCT_NAME "Electron novo"
+  !define INTERNAL_NAME "Electron-novo"
+  !define PRODUCT_WEB_SITE "https://github.com/novoBlockchain/electron-novo"
   !define PRODUCT_PUBLISHER ""
   !define INSTDIR_REG_ROOT "HKCU"
   !define INSTDIR_REG_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
@@ -87,7 +87,7 @@
   !define MUI_ABORTWARNING
   !define MUI_ABORTWARNING_TEXT "Are you sure you wish to abort the installation of ${PRODUCT_NAME}?"
 
-  !define MUI_ICON "\electronradiant\icons\electron.ico"
+  !define MUI_ICON "\electronnovo\icons\electron.ico"
 
 ;--------------------------------
 ;Pages
@@ -169,7 +169,7 @@ Section
   !insertmacro UNINSTALL.LOG_OPEN_INSTALL
 
   ;Files to pack into the installer
-  File /r "dist\electronradiant\*.*"
+  File /r "dist\electronnovo\*.*"
   File "..\..\icons\electron.ico"
 
   !insertmacro UNINSTALL.LOG_CLOSE_INSTALL
@@ -241,8 +241,8 @@ Section "Uninstall"
   Delete "$SMPROGRAMS\${PRODUCT_NAME}\*.*"
   RMDir  "$SMPROGRAMS\${PRODUCT_NAME}"
 
-  DeleteRegKey ${INSTDIR_REG_ROOT} "Software\Classes\radiant"
-  DeleteRegKey ${INSTDIR_REG_ROOT} "Software\Classes\rxd"
+  DeleteRegKey ${INSTDIR_REG_ROOT} "Software\Classes\novo"
+  DeleteRegKey ${INSTDIR_REG_ROOT} "Software\Classes\novo"
   DeleteRegKey ${INSTDIR_REG_ROOT} "Software\${PRODUCT_NAME}"
   DeleteRegKey ${INSTDIR_REG_ROOT} "${INSTDIR_REG_KEY}"
 SectionEnd

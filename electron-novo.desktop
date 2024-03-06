@@ -1,0 +1,21 @@
+# If you want Electron novo to appear in a linux app launcher ("start menu"),
+# install this file by doing:
+# sudo desktop-file-install electron-novo.desktop
+
+[Desktop Entry]
+Comment=Lightweight novo Client
+Exec=electron-novo %u
+GenericName=novo Wallet
+Icon=electron-novo
+Name=Electron novo
+Categories=Finance;Network;
+StartupNotify=true
+StartupWMClass=Electron novo
+Terminal=false
+Type=Application
+#MimeType=x-scheme-handler/bitcoincash;x-scheme-handler/cashacct;
+Actions=Testnet;
+
+[Desktop Action Testnet]
+Exec=electron-novo --testnet %u
+Name=Testnet mode

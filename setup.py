@@ -25,7 +25,7 @@ with open('contrib/requirements/requirements-web3.txt') as f:
 version = imp.load_source('version', 'electroncash/version.py')
 
 if sys.version_info[:3] < (3, 6):
-    sys.exit("Error: Electron Radiant requires Python version >= 3.6...")
+    sys.exit("Error: Electron novo requires Python version >= 3.6...")
 
 data_files = []
 
@@ -59,11 +59,11 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         share_dir = user_share
     data_files += [
         # Menu icon
-        (os.path.join(share_dir, 'icons/hicolor/256x256/apps/'),   ['icons/electron-radiant.png']),
-        (os.path.join(share_dir, 'pixmaps/'),                      ['icons/electron-radiant.png']),
-        (os.path.join(share_dir, 'icons/hicolor/scaleable/apps/'), ['icons/electron-radiant.svg']),
+        (os.path.join(share_dir, 'icons/hicolor/256x256/apps/'),   ['icons/electron-novo.png']),
+        (os.path.join(share_dir, 'pixmaps/'),                      ['icons/electron-novo.png']),
+        (os.path.join(share_dir, 'icons/hicolor/scaleable/apps/'), ['icons/electron-novo.svg']),
         # Menu entry
-        (os.path.join(share_dir, 'applications/'), ['electron-radiant.desktop']),
+        (os.path.join(share_dir, 'applications/'), ['electron-novo.desktop']),
         # App stream (store) metadata
         (os.path.join(share_dir, 'metainfo/'), ['org.electroncash.ElectronCash.appdata.xml']),
     ]
@@ -144,7 +144,7 @@ setup(
     cmdclass={
         'sdist': MakeAllBeforeSdist,
     },
-    name=os.environ.get('EC_PACKAGE_NAME') or "Electron Radiant",
+    name=os.environ.get('EC_PACKAGE_NAME') or "Electron novo",
     version=os.environ.get('EC_PACKAGE_VERSION') or version.PACKAGE_VERSION,
     install_requires=requirements,
     extras_require={
@@ -197,12 +197,12 @@ setup(
         # On Darwin we don't use that font, so we don't add it to save space.
         **platform_package_data
     },
-    scripts=['electron-radiant'],
+    scripts=['electron-novo'],
     data_files=data_files,
-    description="Lightweight Radiant Wallet",
+    description="Lightweight novo Wallet",
     author="",
     author_email="",
     license="MIT Licence",
-    url="https://github.com/RadiantBlockchain/electron-radiant",
-    long_description="""Lightweight Radiant Wallet"""
+    url="https://github.com/novoBlockchain/electron-novo",
+    long_description="""Lightweight novo Wallet"""
 )

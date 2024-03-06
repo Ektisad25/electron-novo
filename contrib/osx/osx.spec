@@ -3,10 +3,10 @@
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules, collect_dynamic_libs
 import sys, os
 
-PACKAGE='Electron-Radiant'
-BUNDLE_IDENTIFIER='org.electronradiant.' + PACKAGE # Used for info.plist
+PACKAGE='Electron-novo'
+BUNDLE_IDENTIFIER='org.electronnovo.' + PACKAGE # Used for info.plist
 PYPKG='electroncash'
-MAIN_SCRIPT='electron-radiant'
+MAIN_SCRIPT='electron-novo'
 ICONS_FILE='electron.icns'
 
 for i, x in enumerate(sys.argv):
